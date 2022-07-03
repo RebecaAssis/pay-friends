@@ -1,2 +1,16 @@
 @import 'variables';
-
+.login-container {
+    height: 100%;
+    width: 100%;
+    .login-section {
+        width: 30%;
+        background-color: $lightest-gray;
+        .text {
+            width: 321px;
+        }
+    }
+    .image-section {
+        width: 70%;
+    }
+    
+}

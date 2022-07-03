@@ -1,0 +1,29 @@
+@import 'variables';
+
+
+.input-container {
+    position: relative;
+    .input-label {
+        background-color: $lightest-gray;
+        bottom: 44px;
+        color: $gray;
+        font-size: 14px;
+        left: 14px;
+        padding: 0 4px;
+        position: absolute;
+    }
+    
+    input.input-default {
+        background-color: transparent;
+        border: 1px solid $medium-gray;
+        border-radius: 4px;
+        color: $darkest-gray;
+        font-size: 14px;
+        height: 52px;
+        outline: none;
+        width: 321px;
+        &::placeholder {
+            color: $gray;
+        }
+    }
+}
