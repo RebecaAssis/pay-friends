@@ -1,15 +1,16 @@
 <div fxLayout="row" class="login-container">
-    <section fxLayout="column" fxLayoutAlign="center center" class="login-section">
-        <div class="text" fxLayout="column">
+    <section fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="45px" class="form-section">
+        <div fxLayoutGap="35px" fxLayout="column" class="text-content">
             <div fxLayout="row">
                 <span>Pay</span>
                 <span>Friends</span>
             </div>
             <p>Bem vindo de volta</p>
         </div>
-        <form action="" fxLayout="column" fxLayoutGap="37px">
-            <app-input [type]="'email'"></app-input>
-            <app-input [type]="'password'"></app-input>
+        <form action="" fxLayout="column" fxLayoutGap="37px" class="login-form">
+            <app-input [type]="'email'" [label]="'Email'"></app-input>
+            <app-input [type]="'password'" [label]="'Senha'" [srcPaths]="srcPaths"></app-input>
+            <app-button-default></app-button-default>
         </form>
     </section>
     <section>

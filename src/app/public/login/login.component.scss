@@ -2,11 +2,28 @@
 .login-container {
     height: 100%;
     width: 100%;
-    .login-section {
-        width: 30%;
+    .form-section {
         background-color: $lightest-gray;
-        .text {
+        width: 30%;
+        .text-content {
             width: 321px;
+            & div:nth-last-of-type(1) {
+                font-size: 22px;
+                & span:first-child {
+                    color: $darkest-blue;
+                    font-weight: 700;
+                }
+                & span:last-child {
+                    color: $dark-blue;
+                    font-weight: 400;
+                }
+            }
+            & p:nth-of-type(1) {
+                color: $darkest-gray;
+                font-size: 25px;
+                font-weight: 700;
+                margin: 0;
+            }
         }
     }
     .image-section {

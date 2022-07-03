@@ -1,4 +1,5 @@
 <div class="input-container">
-    <label for="" *ngIf="type" class="input-label">{{type}}</label>
-    <input [type]="type" class="input-default">
+    <label for="" *ngIf="type" class="input-label">{{label}}</label>
+    <input [type]="type | lowercase" class="input-default" id="teste">
+    <img *ngIf="srcPaths" [src]="src" alt="visualizar" (click)="showPassword()">
 </div>

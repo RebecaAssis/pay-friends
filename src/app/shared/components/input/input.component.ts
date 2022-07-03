@@ -9,10 +9,27 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 export class InputComponent implements OnInit {
 
   @Input() type: string;
+  @Input() label: string;
+  passwordHidden: boolean = true; 
+  @Input() srcPaths: string[];
+  src: string = '../../../../assets/icons/visibility-off.svg';
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    
+  }
+
+  showPassword() {
+    this.passwordHidden = !this.passwordHidden;
+    
+    if(this.passwordHidden) {
+      this.src = this.srcPaths[0];
+    } else {
+      this.src = this.srcPaths[1];
+      this.type = 'text';
+    }
   }
 
 }

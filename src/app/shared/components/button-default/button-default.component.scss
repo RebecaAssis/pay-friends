@@ -1,0 +1,14 @@
+@import 'variables';
+
+.button-default {
+    background-color: $vivid-blue;
+    border: none;
+    border-radius: 4px;
+    color: $white;
+    height: 35px;
+    width: 100%;
+    &:hover {
+        cursor: pointer;
+        background-color: transparentize($color: $vivid-blue, $amount: 0.1);
+    }
+}

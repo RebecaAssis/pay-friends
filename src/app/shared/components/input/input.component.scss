@@ -5,9 +5,9 @@
     position: relative;
     .input-label {
         background-color: $lightest-gray;
-        bottom: 44px;
+        bottom: 46px;
         color: $gray;
-        font-size: 14px;
+        font-size: 10px;
         left: 14px;
         padding: 0 4px;
         position: absolute;
@@ -18,12 +18,25 @@
         border: 1px solid $medium-gray;
         border-radius: 4px;
         color: $darkest-gray;
-        font-size: 14px;
+        font-size: 12px;
         height: 52px;
         outline: none;
+        padding: 0 15px;
         width: 321px;
         &::placeholder {
             color: $gray;
+        }
+    }
+
+    img {
+        filter: brightness(0) saturate(100%) invert(38%) sepia(0%) saturate(1%) hue-rotate(205deg) brightness(92%) contrast(90%);    
+        height: 22px;
+        position: absolute;
+        right: 15px;
+        top: 14px;
+        width: 22px;
+        &:hover {
+            cursor: pointer;
         }
     }
 }
