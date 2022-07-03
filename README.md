@@ -1,4 +1,4 @@
-# **Desafio Frontend PicPay**
+<!-- # **Desafio Frontend PicPay**
 
 Primeiramente, obrigado pelo seu interesse em trabalhar na melhor plataforma de pagamentos do mundo!
 Abaixo você encontrará todos as informações necessárias para iniciar o seu teste.
@@ -113,4 +113,4 @@ https://www.conventionalcommits.org/en/v1.0.0/
 
 Qualquer problema por favor contate seu recruiter.
 
-**BOA SORTE !** 😉😉😉
+**BOA SORTE !** 😉😉😉 -->
