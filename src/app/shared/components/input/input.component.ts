@@ -1,3 +1,4 @@
+import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputComponent implements OnInit {
-
   @Input() type: string;
   @Input() label: string;
+  @Input() inputFormGroup: FormGroup;
+  @Input() inputFormControlName;
   passwordHidden: boolean = true; 
   @Input() srcPaths: string[];
   src: string = '../../../../assets/icons/visibility-off.svg';
@@ -18,7 +20,6 @@ export class InputComponent implements OnInit {
   }
 
   ngOnInit(): void { 
-    
   }
 
   showPassword() {
@@ -26,6 +27,7 @@ export class InputComponent implements OnInit {
     
     if(this.passwordHidden) {
       this.src = this.srcPaths[0];
+      this.type = 'password'
     } else {
       this.src = this.srcPaths[1];
       this.type = 'text';
