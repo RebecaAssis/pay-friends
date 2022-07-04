@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   templateUrl: './login.component.html',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   });
   
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,8 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.user.push(this.loginForm.value);
     console.log(this.user)
+
+    this.authenticationService.getUser().subscribe((dados) => console.log(dados));
   }
 
 }
