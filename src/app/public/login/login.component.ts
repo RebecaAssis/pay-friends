@@ -2,6 +2,7 @@ import { LocalStorageService } from './services/local-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './login.component.html',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   authentication: boolean = false;
   
 
-  constructor(private authenticationService: AuthenticationService, private localStorageService: LocalStorageService) { }
+  constructor(private authenticationService: AuthenticationService, private localStorageService: LocalStorageService, private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
     for (let key in dados) {
       if(dados[key].email === this.loginDataInserted.email && dados[key].password === this.loginDataInserted.password) {
         this.authentication = true;
+        this.saveAuthentication();
 
       } else {
         this.authentication = false;
@@ -36,6 +38,7 @@ export class LoginComponent implements OnInit {
   
   saveAuthentication() {
     this.localStorageService.set('authentication', this.authentication);
+    this.route.navigate(['/home']);
   }
 
   onSubmit() {
@@ -43,7 +46,6 @@ export class LoginComponent implements OnInit {
     
     this.authenticationService.getUser().subscribe((dados) => {
       this.checkLoginData(dados); 
-      this.saveAuthentication();
     });
   }
 
