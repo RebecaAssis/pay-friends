@@ -1,3 +1,4 @@
+import { LocalStorageService } from './services/local-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   authentication: boolean = false;
   
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
   }
@@ -33,13 +34,18 @@ export class LoginComponent implements OnInit {
     }
   }
   
+  saveAuthentication() {
+    this.localStorageService.set('authentication', this.authentication);
+  }
+
   onSubmit() {
     this.loginDataInserted = this.loginForm.value;
     
     this.authenticationService.getUser().subscribe((dados) => {
-      this.checkLoginData(dados);  
+      this.checkLoginData(dados); 
+      this.saveAuthentication();
     });
   }
-  
 
+  
 }

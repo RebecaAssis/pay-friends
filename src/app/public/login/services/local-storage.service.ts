@@ -4,13 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LocalStorageService {
-
-  constructor(private storage: Storage) {
+  private storage: Storage
+  
+  constructor() {
 
     this.storage = window.localStorage;
    }
 
-   set(key: string, value: string) {
+   set(key: string, value: any) {
     this.storage.setItem(key, JSON.stringify(value));
    }
 
