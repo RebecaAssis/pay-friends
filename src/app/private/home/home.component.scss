@@ -1,0 +1,45 @@
+@import 'variables';
+
+.body {
+    background-color: $lightest-gray;
+    height: 100%;
+    padding: 73px 50px;
+    h1 {
+        color: $darkest-gray;
+        font-size: 35px;
+        margin: 0;
+    }
+    app-button-default {
+        .button-default {
+            width: 225px;
+        }
+    }
+    .table-container {
+        background-color: $white;
+        border-radius: 4px;
+        height: 511px;
+        width: 100%;
+        & div:first-child {
+            margin: 15px 58px 0 13px;
+        }
+        app-input {
+            position: relative;
+            width: 210px;
+            &::after {
+                background-image: url("../../../assets/icons/search.svg");
+                content: "";
+                filter: brightness(0) saturate(100%) invert(38%) sepia(0%) saturate(1%) hue-rotate(205deg) brightness(92%) contrast(90%);
+                height: 18px;
+                left: 193px;
+                position: absolute;
+                top: 19px;
+                width: 18px;
+            }
+            .input-container {
+                input.input-default {
+                    height: 30px;
+                }
+            }
+        }
+    }
+}

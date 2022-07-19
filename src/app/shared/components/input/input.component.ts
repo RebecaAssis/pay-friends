@@ -1,14 +1,16 @@
 import { FormControl, FormGroup } from '@angular/forms';
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class InputComponent implements OnInit {
   @Input() type: string;
+  @Input() placeholder;
   @Input() label: string;
   @Input() inputFormGroup: FormGroup;
   @Input() inputFormControlName;

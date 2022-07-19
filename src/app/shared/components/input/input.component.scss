@@ -3,6 +3,7 @@
 
 .input-container {
     position: relative;
+    width: 100%;
     .input-label {
         background-color: $lightest-gray;
         bottom: 46px;
@@ -22,7 +23,7 @@
         height: 52px;
         outline: none;
         padding: 0 15px;
-        width: 321px;
+        width: 100%;
         &::placeholder {
             color: $gray;
         }

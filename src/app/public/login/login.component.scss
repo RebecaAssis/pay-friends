@@ -4,7 +4,9 @@
     width: 100%;
     .form-section {
         background-color: $lightest-gray;
+        min-width: 335px;
         width: 30%;
+        
         .text-content {
             width: 321px;
             & div:nth-last-of-type(1) {
@@ -23,6 +25,11 @@
                 font-size: 25px;
                 font-weight: 700;
                 margin: 0;
+            }
+        }
+        form {
+            app-input {
+                width: 321px;
             }
         }
     }
