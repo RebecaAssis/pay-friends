@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { InputComponent } from './input/input.component';
 import { ButtonDefaultComponent } from './button-default/button-default.component';
 import { HeaderComponent } from './header/header.component';
+import { TableComponent } from './table/table.component';
 
 
 
@@ -11,7 +12,8 @@ import { HeaderComponent } from './header/header.component';
   declarations: [
     InputComponent,
     ButtonDefaultComponent,
-    HeaderComponent
+    HeaderComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { HeaderComponent } from './header/header.component';
   exports: [
     InputComponent,
     ButtonDefaultComponent,
-    HeaderComponent
+    HeaderComponent,
+    TableComponent
   ]
 })
 export class ComponentsModule { }

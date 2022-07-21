@@ -1,0 +1,13 @@
+<table>
+
+    <tr>
+        <th *ngFor="let item of tableHeadList">{{item}}</th>
+    </tr>
+    <tr *ngFor="let data of dataList">
+        <td>{{data.name}}</td>
+        <td>{{data.title}}</td>
+        <td>{{data.date}}</td>
+        <td>{{data.value}}</td>
+        <td>{{data.isPayed}}</td>
+    </tr>
+</table>
