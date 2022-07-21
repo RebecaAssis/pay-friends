@@ -1,0 +1,19 @@
+<div fxLayout="row" class="login-container">
+    <section fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="45px" class="form-section">
+        <div fxLayoutGap="35px" fxLayout="column" class="text-content">
+            <div fxLayout="row">
+                <span>Pay</span>
+                <span>Friends</span>
+            </div>
+            <p>Bem vindo de volta</p>
+        </div>
+        <form action="" fxLayout="column" fxLayoutGap="37px" class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <app-input [type]="'email'" [label]="'Email'" [inputFormGroup]="loginForm" inputFormControlName="email"></app-input>
+            <app-input [type]="'password'" [label]="'Senha'" [srcPaths]="srcPaths" [inputFormGroup]="loginForm" inputFormControlName="password"></app-input>
+            <app-button-default [typeButton]="'submit'" [labelButton]="'ENTRAR'"></app-button-default>
+        </form>
+    </section>
+    <section fxLayoutAlign="center center" class="image-section">
+        <img src="../../../assets/images/login-image.jpg" alt="">
+    </section>
+</div>

@@ -1,0 +1,5 @@
+<div class="input-container" [formGroup]="inputFormGroup">
+    <label for="" *ngIf="label" class="input-label">{{label}}</label>
+    <input [type]="type | lowercase" [formControlName]="inputFormControlName" [placeholder]="placeholder" class="input-default">
+    <img *ngIf="srcPaths" [src]="src" alt="visualizar" (click)="showPassword()">
+</div>

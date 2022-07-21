@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div fxLayout="column" fxLayoutGap="12px" class="body">
+	<h1>Meus pagamentos</h1>
+	<app-button-default [labelButton]="'ADICIONAR PAGAMENTO'" fxLayoutAlign="end center"></app-button-default>
+	<div class="table-container">
+		<div fxLayout="row" fxLayoutGap="9px" class="header-table-container">
+			<app-input [type]="'text'" [placeholder]="'Pesquisar por usuário'" [inputFormGroup]="filterForm" inputFormControlName="filter"></app-input>
+			<button fxLayout="row" fxLayoutAlign="center center" class="filter-button">
+				<img src="../../../assets/icons/filter.svg" alt="">
+				Filtrar
+			</button>
+		</div>
+	</div>
+</div>

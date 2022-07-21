@@ -1,0 +1,61 @@
+@import 'variables';
+
+.body {
+	background-color: $lightest-gray;
+	height: 100%;
+	padding: 73px 50px;
+	h1 {
+		color: $darkest-gray;
+		font-size: 35px;
+		margin: 0;
+	}
+	app-button-default {
+		.button-default {
+			width: 225px;
+		}
+	}
+
+	.table-container {
+		background-color: $white;
+		border-radius: 4px;
+		height: 511px;
+		padding: 15px 0 34px 0;
+		width: 100%;
+		.header-table-container {
+			margin: 0 58px 0 13px;
+			.filter-button {
+				border: none;
+				border-radius: 4px;
+				height: 30px;
+				img {
+					height: 18px;
+					font-size: 12px;
+					margin-right: 5px;
+					transform: rotate(-90deg);
+				}
+			}
+		}
+
+		app-input {
+			position: relative;
+			width: 210px;
+
+			&::after {
+				background-image: url("../../../assets/icons/search.svg");
+				content: "";
+				filter: brightness(0) saturate(100%) invert(38%) sepia(0%) saturate(1%) hue-rotate(205deg) brightness(92%) contrast(90%);
+				height: 18px;
+				left: 179px;
+				position: absolute;
+				top: 4px;
+				width: 18px;
+			}
+
+			.input-container {
+				input.input-default {
+					height: 30px;
+				}
+			}
+		}
+	}
+}
