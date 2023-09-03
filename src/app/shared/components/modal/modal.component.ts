@@ -11,10 +11,8 @@ export class ModalComponent implements OnInit {
   @Input() secondaryButton = {text: 'CANCELAR', color: '__gray'};
   @Input() submitFunction!: Function;
   @Output() declineEvent = new EventEmitter();
-  @Output() sentDataEvent = new EventEmitter();
 
   closedModal = false;
-  testeSentValue = 'Testando botão continuar';
 
   constructor() { }
 
