@@ -24,11 +24,11 @@
     @include button-default;
     &__gray {
         @include button-default;
-        background-color: $gray-forty;
+        background-color: $gray-third;
         color: $gray-primary;
 
         &:hover {
-            background-color: transparentize($color: $gray-forty, $amount: 0.4);
+            background-color: transparentize($color: #000, $amount: 0.9);
         }
     }
 

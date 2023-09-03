@@ -1,4 +1,4 @@
 <button [class]="'c-button' + buttonColor">
-    <img class="c-button__icon" [src]="iconPath" alt=""> 
+    <img *ngIf="iconPath" class="c-button__icon" [src]="iconPath" alt=""> 
     {{ text }} 
 </button>
