@@ -1,0 +1,7 @@
+<label for="teste" class="c-input">
+    <input [type]="inputType" id="teste" class="c-input__input">
+    <span class="c-input__label">
+        {{ label }}
+    </span>
+    <img *ngIf="iconPath" [src]="iconPath" alt="" class="c-input__icon" (click)="emitIconEvent()">
+</label>

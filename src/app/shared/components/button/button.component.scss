@@ -33,6 +33,7 @@
     }
 
     &__icon, &__gray__icon {
+        filter: brightness(0) saturate(100%) invert(88%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(80%) contrast(86%);
         height: 20px;
     }
 }

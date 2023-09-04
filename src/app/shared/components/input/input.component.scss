@@ -1,0 +1,41 @@
+@import '~/src/assets/styles/variables.scss';
+
+.c-input {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+    &__input {
+        border: 1px solid $gray-secondary;
+        color: $gray-primary;
+        font-size: 16px;
+        outline: none;
+        padding: 15px 10px;
+        
+    }
+
+    &__label {
+        color: $gray-forty;
+        left: 15px;
+        position: absolute;
+        top: 16px;
+        transition: 0.2s;
+    }
+
+    &__icon {
+        height: 20px;
+        filter: brightness(0) saturate(100%) invert(88%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(80%) contrast(86%);
+        position: absolute;
+        right: 15px;
+        top: 16px;
+        width: 20px;
+    }
+}
+
+.c-input__input:focus + .c-input__label {
+    background-color: $white;
+    font-size: 12px;
+    padding: 0 3px;
+    top: -8px;
+    transition: 0.2s;
+}
