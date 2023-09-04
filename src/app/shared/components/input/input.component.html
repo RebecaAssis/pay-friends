@@ -1,5 +1,5 @@
-<label [for]="inputId" class="c-input">
-    <input [type]="inputType" [id]="inputId" class="c-input__input">
+<label [for]="inputId" [formGroup]="inputFormGroup" class="c-input">
+    <input [type]="inputType" [id]="inputFormControlName" [name]="inputFormControlName" [formControlName]="inputFormControlName" class="c-input__input">
     <span class="c-input__label">
         {{ label }}
     </span>

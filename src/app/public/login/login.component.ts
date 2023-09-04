@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   inputType = 'password';
   iconPath = 'assets/icons/eye-closed.png';
+  form = this.fb.group({
+    email: '',
+    password: ''
+  });
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +27,11 @@ export class LoginComponent implements OnInit {
       this.inputType = 'text';
       this.iconPath = 'assets/icons/eye-opened.png';
     }
+  }
+
+  onSubmit () {
+    const value = this.form.getRawValue();
+    window.alert(JSON.stringify(value));
   }
 
 }
