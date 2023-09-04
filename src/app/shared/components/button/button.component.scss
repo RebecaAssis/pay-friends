@@ -1,0 +1,40 @@
+@import '~/src/assets/styles/variables.scss';
+
+@mixin button-default {
+    align-items: center;
+    background-color: $blue-secondary;
+    border: none;
+    border-radius: 5px;
+    color: $white;
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+    gap: 5px;
+    height: 35px;
+    justify-content: center;
+    padding: 0 20px;
+    width: 100%;
+
+    &:hover {
+        cursor: pointer;
+        background-color: transparentize($color: $blue-secondary, $amount: 0.4);
+    }
+}
+
+.c-button {
+    @include button-default;
+    &__gray {
+        @include button-default;
+        background-color: $gray-third;
+        color: $gray-primary;
+
+        &:hover {
+            background-color: transparentize($color: #000, $amount: 0.9);
+        }
+    }
+
+    &__icon, &__gray__icon {
+        filter: brightness(0) saturate(100%) invert(88%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(80%) contrast(86%);
+        height: 20px;
+    }
+}

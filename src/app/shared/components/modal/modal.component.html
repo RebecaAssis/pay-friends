@@ -1,0 +1,12 @@
+<div class="c-modal">
+    <div class="c-modal__content">
+        <p class="c-modal__content__title"> {{ title }}</p>
+        <div class="c-modal__content__body">
+            <ng-content></ng-content>
+        </div>
+        <div class="c-modal__content__footer">
+            <app-button [text]="secondaryButton.text" [buttonColor]="secondaryButton.color" (click)="closeModal()"></app-button>
+            <app-button [text]="primaryButton.text" (click)="executeSubmitFunction()"></app-button>
+        </div>
+    </div>
+</div>
