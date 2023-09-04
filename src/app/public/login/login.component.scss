@@ -1,0 +1,51 @@
+@import '~/src/assets/styles/variables.scss';
+
+@mixin position-default {
+    align-items: center;
+    display: flex;
+}
+
+.p-login {
+    @include position-default;
+    height: 100%;
+
+    @media (max-width: 992px) {
+        flex-direction: column;
+    }
+    
+    &__form-container {
+        @include position-default;
+        background-color: $gray-fifty;
+        height: 100%;
+        justify-content: center;
+        
+        @media (max-width: 992px) {
+            width: 100%;
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 0 110px;
+            width: 330px;
+        }
+    }
+
+    &__img-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0 20px;
+
+        @media (max-width: 992px) {
+            order: -1;
+            padding: 0;
+        }
+
+        & img {
+            width: 100%;
+            max-width: 500px;
+        }
+    }
+}

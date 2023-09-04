@@ -9,6 +9,7 @@ export class InputComponent implements OnInit {
   @Input() label = 'Senha';
   @Input() iconPath = '';
   @Input() inputType = 'text';
+  @Input() inputId = '';
   @Output() iconEvent = new EventEmitter();
 
 
