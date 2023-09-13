@@ -2,7 +2,14 @@
     <div class="p-login__form-container">
         <form action="" [formGroup]="form" class="p-login__form-container__form">
             <app-input [inputFormGroup]="form" [inputFormControlName]="'email'"></app-input>
-            <app-input [inputFormGroup]="form" [inputFormControlName]="'password'" [inputType]="inputType" (iconEvent)="showPassword()" [iconPath]="iconPath"></app-input>
+            <app-input 
+                [inputFormGroup]="form" 
+                [inputFormControlName]="'password'" 
+                [inputType]="inputType" 
+                (iconEvent)="showPassword()" 
+                [iconPath]="iconPath"
+            >
+            </app-input>
             <app-button [text]="'ENTRAR'" (click)="onSubmit()"></app-button>
         </form>
     </div>
