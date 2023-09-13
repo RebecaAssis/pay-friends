@@ -6,18 +6,22 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { PaymentsTableComponent } from './components/payments-table/payments-table/payments-table.component';
 import { HeaderComponent } from './components/header/header/header.component';
+import { SelectComponent } from './components/select/select/select.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     PaymentsTableComponent,
-    HeaderComponent
+    HeaderComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
     PrivateRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class PrivateModule { }

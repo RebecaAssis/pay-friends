@@ -1,6 +1,13 @@
 <div class="c-payments-table">
     <h1>Meus Pagamentos</h1>
-    <app-button class="c-payments-table__button" [text]="'ADICIONAR PAGAMENTO'"></app-button>
+    <form action="" [formGroup]="form">
+        <app-select 
+            [inputFormGroup]="form" 
+            [inputFormControlName]="'limit'"
+        >
+        </app-select>
+    </form>
+    <app-button class="c-payments-table__button" [text]="'ADICIONAR PAGAMENTO'" (click)="onChange()"></app-button>
     <table class="c-payments-table__table">
         <thead class="c-payments-table__table__head">
             <tr>

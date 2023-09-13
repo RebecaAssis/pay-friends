@@ -1,4 +1,4 @@
 <div class="p-home">
     <app-header></app-header>
-    <app-payments-table [payments]="payments$ | async"></app-payments-table>
+    <app-payments-table [payments]="payments$ | async" (limitPerPageEvent)="getLimitPerPageValue($event)"></app-payments-table>
 </div>

@@ -10,6 +10,7 @@ import { Payment } from '../interfaces/payment';
 })
 export class HomeComponent implements OnInit {
   payments$: Observable<Payment[]>;
+  limitPerPage = 5;
 
   constructor(private payments: PaymentsService) { }
 
@@ -17,8 +18,13 @@ export class HomeComponent implements OnInit {
     this.getPaymentsList();
   }
 
+  getLimitPerPageValue (limitPerPage: number) {
+    this.limitPerPage = limitPerPage;
+    this.getPaymentsList();
+  }
+
   getPaymentsList () {
-    this.payments$ = this.payments.getPaymentsList(2, 5);
+    this.payments$ = this.payments.getPaymentsList(2, this.limitPerPage);
   }
 
 }
