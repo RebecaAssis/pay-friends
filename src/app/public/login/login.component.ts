@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { LoginService } from '../services/login.service';
+import { UserInterface } from '../interfaces/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +12,13 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   inputType = 'password';
   iconPath = 'assets/icons/eye-closed.png';
+  form = this.fb.group({
+    email: '',
+    password: ''
+  });
+  dataLogin = {email: '', password: ''};
 
-  constructor() { }
+  constructor(private fb: FormBuilder, private login: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +31,22 @@ export class LoginComponent implements OnInit {
       this.inputType = 'text';
       this.iconPath = 'assets/icons/eye-opened.png';
     }
+  }
+
+  onSubmit () {
+    this.dataLogin = this.form.getRawValue();
+    this.login.getUser().subscribe({
+      next: (res) => this.validateUser(res),
+      error: (error) => console.log(error)
+    });
+  }
+
+  validateUser (res: UserInterface[]) {
+    if (res[0].email === this.dataLogin.email && res[0].password === this.dataLogin.password) {
+      return this.router.navigate(['home']);
+    }
+
+    return window.alert('senha inválida');
   }
 
 }

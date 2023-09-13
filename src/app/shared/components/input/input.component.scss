@@ -6,6 +6,7 @@
     position: relative;
     
     &__input {
+        background: none;
         border: 1px solid $gray-secondary;
         border-radius: 5px;
         color: $gray-primary;
@@ -33,8 +34,7 @@
     }
 }
 
-.c-input__input:focus + .c-input__label {
-    background-color: $white;
+.c-input__input:focus + .c-input__label, .c-input__input:active + .c-input__label {
     font-size: 12px;
     padding: 0 3px;
     top: -8px;
