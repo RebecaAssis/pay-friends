@@ -1,0 +1,32 @@
+<div class="c-payments-table">
+    <h1>Meus Pagamentos</h1>
+    <app-button class="c-payments-table__button" [text]="'ADICIONAR PAGAMENTO'"></app-button>
+    <table class="c-payments-table__table">
+        <thead class="c-payments-table__table__head">
+            <tr>
+                <th>Usuário</th>
+                <th>Título</th>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Pago</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let payment of payments">
+                <td>
+                    {{ payment.name }}
+                    <br>
+                    @{{ payment.username }}
+                </td>
+                <td> {{ payment.title }} </td>
+                <td> {{ payment.date }} </td>
+                <td> {{ payment.value }}</td>
+                <td> {{ payment.isPayed }} </td>
+                <td> icon1 icon2 </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <div>
+    </div> -->
+</div>

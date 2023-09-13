@@ -1,0 +1,53 @@
+@import 'variables';
+
+.c-payments-table {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 45px;
+
+    &__button {
+        align-self: flex-end;
+        max-width: 213px;
+    }
+
+    &__table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        
+        th {
+            text-align: start;
+        }
+
+        &__head {
+            border-bottom: 2px solid $blue-forty;
+            tr {
+                th {
+                    padding-bottom: 18px;
+                }
+            }
+        }
+        
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background-color: $blue-third;
+                }
+
+                td:last-of-type {
+                    text-align: end;
+                    width: 30%;
+                }
+            }
+
+            td {
+                text-align: start;
+                padding: 45px 0;
+            }
+    
+
+
+        }
+    }
+}
