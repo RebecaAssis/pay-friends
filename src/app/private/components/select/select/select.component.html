@@ -1,4 +1,4 @@
-<div  [formGroup]="inputFormGroup">
+<div  [formGroup]="inputFormGroup" class="c-select">
     <label [for]="inputFormControlName">{{ label }}</label>
     <select [name]="inputFormControlName" [id]="inputFormControlName" [formControlName]="inputFormControlName">
         <option *ngFor="let option of options" [value]="option"> {{ option }} </option>
