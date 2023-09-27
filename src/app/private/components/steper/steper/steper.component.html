@@ -1,0 +1,15 @@
+<div class="c-pagination">
+    <button class="c-pagination__chevron">
+        <img src="/assets/icons/chevron-left.png" alt="">
+    </button>
+    <div *ngFor="let page of viewPagesList; index as i" class="c-pagination__container-step">
+        <button class="c-pagination__step" [ngClass]="{'c-pagination__step-active': actualPage === pageTeste}">{{ page }}</button>
+        <ng-template [ngIf]="pagesNumber > 5 && (pageList.length > 5 && i === 4)">
+            <span>...</span>
+        </ng-template>
+    </div>
+    <!-- <button class="c-pagination__step" [ngClass]="{'c-pagination__step-active': actualPage === pageTeste}">15</button> -->
+    <button class="c-pagination__chevron">
+        <img src="/assets/icons/chevron-right.png" alt="">
+    </button>
+</div>
