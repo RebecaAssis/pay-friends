@@ -9,8 +9,11 @@ import { Payment } from '../interfaces/payment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  payments$: Observable<Payment[]>;
+  paymentsList: Payment[];
   limitPerPage = 5;
+  totalTasks: number;
+  pagesNumber: number;
+  page = 1;
 
   constructor(private payments: PaymentsService) { }
 
@@ -18,13 +21,56 @@ export class HomeComponent implements OnInit {
     this.getPaymentsList();
   }
 
+  getPaymentsList () {
+    this.payments.getPaymentsList(this.page, this.limitPerPage).subscribe((res) => {
+      this.paymentsList = res.tasksList;
+      this.totalTasks = res.totalTasks;
+      
+      this.definePagesNumber();
+    });
+  }
+
+  definePagesNumber () {
+    this.pagesNumber = this.totalTasks/this.limitPerPage; 
+  }
+
   getLimitPerPageValue (limitPerPage: number) {
     this.limitPerPage = limitPerPage;
     this.getPaymentsList();
   }
 
-  getPaymentsList () {
-    this.payments$ = this.payments.getPaymentsList(2, this.limitPerPage);
-  }
+
+  // addNewPayment () {
+  //   const payload = {
+  //     name: 'teste post',
+  //     username: 'testeposst',
+  //     title: 'POST',
+  //     value: 2,
+  //     date: 'TESTE',
+  //     image: '',
+  //     isPayed: false
+  //   };
+
+  //   this.payments.addNewTask(payload);
+  // }
+
+  // editPayment () {
+  //   const payload = {
+  //     name: 'teste PUT',
+  //     username: 'testePUT',
+  //     title: 'PUT',
+  //     value: 2,
+  //     date: 'TESTE',
+  //     image: '',
+  //     isPayed: false
+  //   };
+
+  //   this.payments.editTask(payload);
+  // }
+
+  // deletePayment () {
+  //   const id = 172;
+  //   this.payments.deleteTask(id)
+  // }
 
 }
