@@ -11,6 +11,27 @@
         max-width: 213px;
     }
 
+    &__form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0 26px;
+
+        input {
+            border-radius: 5px;
+            border: 1px solid $blue-forty;
+            // height: 26px;
+            outline: none;
+            padding: 5px;
+        }
+
+        &__pagination {
+            align-items: center;
+            display: flex;
+            gap: 15px;
+        }
+    }
+
     &__table {
         border-collapse: collapse;
         border-spacing: 0;

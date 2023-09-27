@@ -8,6 +8,7 @@ import { PaymentsTableComponent } from './components/payments-table/payments-tab
 import { HeaderComponent } from './components/header/header/header.component';
 import { SelectComponent } from './components/select/select/select.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SteperComponent } from './components/steper/steper/steper.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     PaymentsTableComponent,
     HeaderComponent,
-    SelectComponent
+    SelectComponent,
+    SteperComponent
   ],
   imports: [
     CommonModule,

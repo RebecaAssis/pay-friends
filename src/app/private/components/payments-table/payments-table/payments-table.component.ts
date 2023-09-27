@@ -11,6 +11,7 @@ import { Payment } from 'src/app/private/interfaces/payment';
 export class PaymentsTableComponent implements OnInit {
   @Output() limitPerPageEvent = new EventEmitter();
   @Input() payments: Payment[] | null;
+  @Input() pagesNumber: number;
   label = 'Exibir';
   form = this.fb.group({
     limit: 5
@@ -30,5 +31,4 @@ export class PaymentsTableComponent implements OnInit {
       this.limitPerPageEvent.emit(value);
     });
   }
-
 }

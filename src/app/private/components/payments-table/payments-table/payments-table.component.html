@@ -1,13 +1,17 @@
 <div class="c-payments-table">
     <h1>Meus Pagamentos</h1>
-    <form action="" [formGroup]="form">
-        <app-select 
-            [inputFormGroup]="form" 
-            [inputFormControlName]="'limit'"
-        >
-        </app-select>
-    </form>
     <app-button class="c-payments-table__button" [text]="'ADICIONAR PAGAMENTO'" (click)="onChange()"></app-button>
+    <form action="" [formGroup]="form" class="c-payments-table__form">
+        <input type="text">
+        <div class="c-payments-table__form__pagination">
+            <app-select 
+                [inputFormGroup]="form" 
+                [inputFormControlName]="'limit'"
+            >
+            </app-select>
+            <app-steper [pagesNumber]="pagesNumber"></app-steper>
+        </div>
+    </form>
     <table class="c-payments-table__table">
         <thead class="c-payments-table__table__head">
             <tr>
