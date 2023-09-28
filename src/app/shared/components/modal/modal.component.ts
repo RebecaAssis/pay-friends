@@ -12,7 +12,6 @@ export class ModalComponent implements OnInit {
   @Input() submitFunction!: Function;
   @Output() declineEvent = new EventEmitter();
 
-  closedModal = false;
 
   constructor() { }
 
@@ -20,8 +19,7 @@ export class ModalComponent implements OnInit {
   }
 
   closeModal () {
-    this.closedModal = true;
-    this.declineEvent.emit(this.closeModal);
+    this.declineEvent.emit();
   }
 
   executeSubmitFunction () {
