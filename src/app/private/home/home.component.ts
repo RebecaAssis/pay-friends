@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   totalTasks: number;
   pagesNumber: number;
   page = 1;
+  modalOpened = false;
 
   form = this.fb.group({
     limit: 5
@@ -32,7 +33,12 @@ export class HomeComponent implements OnInit {
   }
 
   addPayment () {
+    this.toggleModal();
     console.log('Adicionar Pagamento');
+  }
+
+  toggleModal () {
+    this.modalOpened = !this.modalOpened;
   }
 
   getPaymentsList () {
