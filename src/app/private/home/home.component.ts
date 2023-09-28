@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentsService } from '../services/payments.service';
 import { Observable } from 'rxjs';
 import { Payment } from '../interfaces/payment';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,11 @@ export class HomeComponent implements OnInit {
   pagesNumber: number;
   page = 1;
 
-  constructor(private payments: PaymentsService) { }
+  form = this.fb.group({
+    limit: 5
+  })
+
+  constructor(private payments: PaymentsService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getPaymentsList();
@@ -24,6 +29,10 @@ export class HomeComponent implements OnInit {
   getPageValue (page: number) {
     this.page = page;
     this.getPaymentsList();
+  }
+
+  addPayment () {
+    console.log('Adicionar Pagamento');
   }
 
   getPaymentsList () {
