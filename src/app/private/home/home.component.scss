@@ -23,4 +23,26 @@
         }
     }
 
+    &__c-modal {
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+
+            div {
+                display: flex;
+                gap: 30px;
+
+                input {
+                    border-radius: 5px;
+                    border: 1px solid $blue-forty;
+                    // height: 52px;
+                    outline: none;
+                    padding: 20px 15px;
+                    width: 320px;
+                }
+            }
+        }
+    }
+
 }

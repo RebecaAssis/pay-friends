@@ -14,5 +14,16 @@
         >
         </app-payments-table>
     </div>
-    <app-modal *ngIf="modalOpened" (declineEvent)="toggleModal()"></app-modal>
+    <app-modal *ngIf="modalOpened" [title]="'Adicionar pagamento'" (declineEvent)="toggleModal()" class="p-home__c-modal">
+        <form class="p-home__c-modal__form">
+            <div>
+                <input type="text" placeholder="Usuário*">
+                <input type="text" placeholder="Data*">
+            </div>
+            <div>
+                <input type="text" placeholder="Valor*">
+                <input type="text" placeholder="Título">
+            </div>
+        </form>
+    </app-modal>
 </div>
