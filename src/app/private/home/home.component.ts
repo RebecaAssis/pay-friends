@@ -21,6 +21,11 @@ export class HomeComponent implements OnInit {
     this.getPaymentsList();
   }
 
+  getPageValue (page: number) {
+    this.page = page;
+    this.getPaymentsList();
+  }
+
   getPaymentsList () {
     this.payments.getPaymentsList(this.page, this.limitPerPage).subscribe((res) => {
       this.paymentsList = res.tasksList;

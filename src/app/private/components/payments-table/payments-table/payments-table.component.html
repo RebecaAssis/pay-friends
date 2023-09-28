@@ -9,7 +9,7 @@
                 [inputFormControlName]="'limit'"
             >
             </app-select>
-            <app-steper [pagesNumber]="pagesNumber"></app-steper>
+            <app-steper [pagesNumber]="pagesNumber" (EventActualPage)="emitPage($event)"></app-steper>
         </div>
     </form>
     <table class="c-payments-table__table">

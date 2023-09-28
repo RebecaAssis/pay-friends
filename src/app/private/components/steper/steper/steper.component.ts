@@ -1,5 +1,5 @@
 import { map } from 'rxjs';
-import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-steper',
@@ -8,10 +8,11 @@ import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@ang
 })
 export class SteperComponent implements OnInit, OnChanges {
   @Input() pagesNumber = 1;
-  @Output() actualPage = 1;
+  @Output() EventActualPage = new EventEmitter();
+  actualPage = 1;
   pageTeste = 1;
-  pageList: Number[] = [];
-  viewPagesList: Number[] = [];
+  pageList: number[] = [];
+  viewPagesList: number[] = [];
 
   constructor() { }
 
@@ -37,6 +38,32 @@ export class SteperComponent implements OnInit, OnChanges {
       this.viewPagesList = this.pageList.slice(0, 5);
       this.viewPagesList.push(this.pageList[this.pageList.length - 1]);
     }
+  }
+
+  previousPage () {
+    if (this.actualPage !== this.pageList[0]) {
+      this.actualPage -= 1;
+      this.EventActualPage.emit(this.actualPage);
+    }
+    
+    (this.viewPagesList[0] !== this.pageList[0] && (this.actualPage < this.viewPagesList[this.viewPagesList.length - 2])) && this.updateViewPagesList('');
+  }
+
+  nextPage () {
+    if (this.actualPage < this.pageList[this.pageList.length - 1]) {
+      this.actualPage += 1;
+      this.EventActualPage.emit(this.actualPage);
+    }
+
+    (this.actualPage >= 5 && this.actualPage < this.pageList[this.pageList.length - 2]) && this.updateViewPagesList('next');
+  }
+  
+  updateViewPagesList (param: string) {
+    const viewPagesListUptaded = param ? this.viewPagesList.slice(0, 5).map(x => x + 1) : this.viewPagesList.slice(0, 5).map(x => x - 1);
+
+    viewPagesListUptaded.push(this.pageList[this.pageList.length - 1]);
+    this.viewPagesList = viewPagesListUptaded;
+    console.log(this.viewPagesList);
   }
 
 }

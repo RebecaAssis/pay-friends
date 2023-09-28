@@ -3,5 +3,11 @@
     <!-- <button type="button" (click)="addNewPayment()">add</button>
     <button type="button" (click)="editPayment()">edit</button>
     <button type="button" (click)="deletePayment()">delete</button> -->
-    <app-payments-table [payments]="paymentsList" [pagesNumber]="pagesNumber" (limitPerPageEvent)="getLimitPerPageValue($event)"></app-payments-table>
+    <app-payments-table 
+        [payments]="paymentsList" 
+        [pagesNumber]="pagesNumber" 
+        (limitPerPageEvent)="getLimitPerPageValue($event)"
+        (EventActualPage)="getPageValue($event)"
+    >
+    </app-payments-table>
 </div>
