@@ -14,15 +14,45 @@
         >
         </app-payments-table>
     </div>
-    <app-modal *ngIf="modalOpened" [title]="'Adicionar pagamento'" (declineEvent)="toggleModal()" class="p-home__c-modal">
-        <form class="p-home__c-modal__form">
-            <div>
-                <input type="text" placeholder="Usuário*">
-                <input type="text" placeholder="Data*">
+    <app-modal 
+        *ngIf="modalOpened" 
+        [title]="'Adicionar pagamento'"
+        [buttonSubmitDisabled]="form.status === 'INVALID' ? true : false"
+        (declineEvent)="toggleModal()"
+        [submitFunction]="addNewPayment.bind(this)" 
+        class="p-home__c-modal"
+    >
+        <form class="p-home__c-modal__form" [formGroup]="form">
+            <div class="p-home__c-modal__form__container">
+                <input 
+                    type="text" 
+                    placeholder="Usuário*" 
+                    [formControlName]="'user'" 
+                    class="p-home__c-modal__form__container__input"
+                    [ngClass]="{'p-home__c-modal__form__container__input--error': form.get('user')?.invalid && (form.get('user')?.dirty || form.get('user')?.touched)}"
+                >
+                <input 
+                    type="text" 
+                    placeholder="Data*" 
+                    [formControlName]="'date'"
+                    class="p-home__c-modal__form__container__input"
+                    [ngClass]="{'p-home__c-modal__form__container__input--error': form.get('date')?.invalid && (form.get('date')?.dirty || form.get('date')?.touched)}"
+                >
             </div>
-            <div>
-                <input type="text" placeholder="Valor*">
-                <input type="text" placeholder="Título">
+            <div class="p-home__c-modal__form__container">
+                <input 
+                    type="text" 
+                    placeholder="Valor*" 
+                    [formControlName]="'value'"
+                    class="p-home__c-modal__form__container__input"
+                    [ngClass]="{'p-home__c-modal__form__container__input--error': form.get('value')?.invalid && (form.get('value')?.dirty || form.get('value')?.touched)}"
+                >
+                <input 
+                    type="text" 
+                    placeholder="Título" 
+                    [formControlName]="'title'"
+                    class="p-home__c-modal__form__container__input"
+                >
             </div>
         </form>
     </app-modal>

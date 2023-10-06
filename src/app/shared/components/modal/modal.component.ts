@@ -10,6 +10,7 @@ export class ModalComponent implements OnInit {
   @Input() primaryButton = {text: 'SALVAR', color: ''};
   @Input() secondaryButton = {text: 'CANCELAR', color: '__gray'};
   @Input() submitFunction!: Function;
+  @Input() buttonSubmitDisabled = true;
   @Output() declineEvent = new EventEmitter();
 
 

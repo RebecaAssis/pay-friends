@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentsService } from '../services/payments.service';
 import { Observable } from 'rxjs';
 import { Payment } from '../interfaces/payment';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,10 @@ export class HomeComponent implements OnInit {
   modalOpened = false;
 
   form = this.fb.group({
-    limit: 5
+    user: ['', Validators.required],
+    date: ['', Validators.required],
+    value: ['', Validators.required],
+    title: ['']
   })
 
   constructor(private payments: PaymentsService, private fb: FormBuilder) { }
@@ -59,20 +62,20 @@ export class HomeComponent implements OnInit {
     this.getPaymentsList();
   }
 
+  addNewPayment () {
+    // const payload = {
+    //   name: 'teste post',
+    //   username: 'testeposst',
+    //   title: 'POST',
+    //   value: 2,
+    //   date: 'TESTE',
+    //   image: '',
+    //   isPayed: false
+    // };
 
-  // addNewPayment () {
-  //   const payload = {
-  //     name: 'teste post',
-  //     username: 'testeposst',
-  //     title: 'POST',
-  //     value: 2,
-  //     date: 'TESTE',
-  //     image: '',
-  //     isPayed: false
-  //   };
-
-  //   this.payments.addNewTask(payload);
-  // }
+    // this.payments.addNewTask(payload);
+    console.log('addNewPayment Function');
+  }
 
   // editPayment () {
   //   const payload = {

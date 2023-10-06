@@ -9,6 +9,7 @@ export class ButtonComponent implements OnInit {
   @Input() text: string = 'Continuar';
   @Input() iconPath: string = '';
   @Input() buttonColor: string = '';
+  @Input() buttonDisabled: boolean = false;
 
   constructor() { }
 

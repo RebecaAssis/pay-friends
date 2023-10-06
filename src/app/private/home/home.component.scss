@@ -29,19 +29,24 @@
             flex-direction: column;
             gap: 36px;
 
-            div {
+            &__container {
                 display: flex;
                 gap: 30px;
 
-                input {
+                &__input {
                     border-radius: 5px;
                     border: 1px solid $blue-forty;
                     // height: 52px;
                     outline: none;
                     padding: 20px 15px;
                     width: 320px;
+
+                    &--error {
+                        border: 1px solid red;
+                    }
                 }
             }
+
         }
     }
 
