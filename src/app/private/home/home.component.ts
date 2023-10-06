@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentsService } from '../services/payments.service';
 import { Observable } from 'rxjs';
 import { Payment } from '../interfaces/payment';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +15,16 @@ export class HomeComponent implements OnInit {
   totalTasks: number;
   pagesNumber: number;
   page = 1;
+  modalOpened = false;
 
-  constructor(private payments: PaymentsService) { }
+  form = this.fb.group({
+    user: ['', Validators.required],
+    date: ['', Validators.required],
+    value: ['', Validators.required],
+    title: ['']
+  })
+
+  constructor(private payments: PaymentsService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getPaymentsList();
@@ -24,6 +33,15 @@ export class HomeComponent implements OnInit {
   getPageValue (page: number) {
     this.page = page;
     this.getPaymentsList();
+  }
+
+  addPayment () {
+    this.toggleModal();
+    console.log('Adicionar Pagamento');
+  }
+
+  toggleModal () {
+    this.modalOpened = !this.modalOpened;
   }
 
   getPaymentsList () {
@@ -44,20 +62,20 @@ export class HomeComponent implements OnInit {
     this.getPaymentsList();
   }
 
+  addNewPayment () {
+    // const payload = {
+    //   name: 'teste post',
+    //   username: 'testeposst',
+    //   title: 'POST',
+    //   value: 2,
+    //   date: 'TESTE',
+    //   image: '',
+    //   isPayed: false
+    // };
 
-  // addNewPayment () {
-  //   const payload = {
-  //     name: 'teste post',
-  //     username: 'testeposst',
-  //     title: 'POST',
-  //     value: 2,
-  //     date: 'TESTE',
-  //     image: '',
-  //     isPayed: false
-  //   };
-
-  //   this.payments.addNewTask(payload);
-  // }
+    // this.payments.addNewTask(payload);
+    console.log('addNewPayment Function');
+  }
 
   // editPayment () {
   //   const payload = {

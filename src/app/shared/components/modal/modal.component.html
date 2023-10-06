@@ -6,7 +6,7 @@
         </div>
         <div class="c-modal__content__footer">
             <app-button [text]="secondaryButton.text" [buttonColor]="secondaryButton.color" (click)="closeModal()"></app-button>
-            <app-button [text]="primaryButton.text" (click)="executeSubmitFunction()"></app-button>
+            <app-button [text]="primaryButton.text" (click)="executeSubmitFunction()" [buttonDisabled]="buttonSubmitDisabled"></app-button>
         </div>
     </div>
 </div>
