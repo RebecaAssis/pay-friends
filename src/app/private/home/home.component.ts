@@ -35,13 +35,17 @@ export class HomeComponent implements OnInit {
     this.getPaymentsList();
   }
 
-  addPayment () {
-    this.toggleModal();
-    console.log('Adicionar Pagamento');
+  toggleModal () {    
+    this.modalOpened = !this.modalOpened;
+    !this.modalOpened && this.clearForm();
   }
 
-  toggleModal () {
-    this.modalOpened = !this.modalOpened;
+  clearForm () {
+    this.form.reset({name: '', date: '', value: '', title: ''});
+  }
+
+  addPayment () {
+    this.toggleModal();
   }
 
   getPaymentsList () {
@@ -76,6 +80,7 @@ export class HomeComponent implements OnInit {
 
     const payload = this.form.getRawValue();
     this.payments.addNewTask(payload);
+    this.toggleModal();
   }
 
   // editPayment () {
