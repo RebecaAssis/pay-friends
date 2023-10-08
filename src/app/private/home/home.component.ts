@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   modalOpened = false;
 
   form = this.fb.group({
-    user: ['', Validators.required],
+    name: ['', Validators.required],
     date: ['', Validators.required],
     value: ['', Validators.required],
     title: ['']
@@ -59,6 +59,7 @@ export class HomeComponent implements OnInit {
 
   getLimitPerPageValue (limitPerPage: number) {
     this.limitPerPage = limitPerPage;
+    this.page = 1;
     this.getPaymentsList();
   }
 
@@ -73,8 +74,8 @@ export class HomeComponent implements OnInit {
     //   isPayed: false
     // };
 
-    // this.payments.addNewTask(payload);
-    console.log('addNewPayment Function');
+    const payload = this.form.getRawValue();
+    this.payments.addNewTask(payload);
   }
 
   // editPayment () {

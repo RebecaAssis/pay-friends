@@ -42,7 +42,6 @@
         background-color: transparentize($color: $blue-secondary, $amount: 0.8);
 
         &:hover {
-            cursor: none;
             background-color: transparentize($color: $blue-secondary, $amount: 0.8);
         }
     }
