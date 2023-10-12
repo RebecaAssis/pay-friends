@@ -28,7 +28,7 @@ export class PaymentsService {
   }
 
   editTask (payload: Payment) {
-    return this.http.put('http://localhost:3000/tasks/171', payload).subscribe({
+    return this.http.patch(`http://localhost:3000/tasks/${payload.id}`, payload).subscribe({
       next: (res) => console.log(res),
       error: (error) => console.log(error)
     })

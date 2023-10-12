@@ -11,6 +11,8 @@ import { Payment } from 'src/app/private/interfaces/payment';
 export class PaymentsTableComponent implements OnInit {
   @Output() limitPerPageEvent = new EventEmitter();
   @Output() EventActualPage = new EventEmitter();
+  @Output() EventEditItem = new EventEmitter();
+  @Output() EventRemoveItem = new EventEmitter();
   @Input() payments: Payment[] | null;
   @Input() pagesNumber: number;
   @Input() actualPage: number;
@@ -37,5 +39,18 @@ export class PaymentsTableComponent implements OnInit {
 
   emitPage (page: number) {
     this.EventActualPage.emit(page);
+  }
+
+  editItem (payment: Payment) {
+    const dataItem = {
+      item: payment,
+      method: 'PATCH'
+    }
+
+    this.EventEditItem.emit(dataItem);
+  }
+
+  removeItem (payment: Payment) {
+    this.EventRemoveItem.emit(payment);
   }
 }

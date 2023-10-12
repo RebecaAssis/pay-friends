@@ -32,10 +32,17 @@
                 <td> {{ payment.date }} </td>
                 <td> {{ payment.value }}</td>
                 <td> {{ payment.isPayed }} </td>
-                <td> icon1 icon2 </td>
+                <td>
+                    <div class="c-payments-table__table__icons">
+                        <span class="c-payments-table__table__icons__icon" (click)="editItem(payment)">
+                            <img src="/assets/icons/edit.png" alt="">
+                        </span>
+                        <span class="c-payments-table__table__icons__icon" (click)="removeItem(payment)">
+                            <img src="/assets/icons/remove.png" alt="">
+                        </span>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
-    <!-- <div>
-    </div> -->
 </div>

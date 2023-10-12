@@ -22,11 +22,12 @@ export class SteperComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     const pagesNumber = this.roundPagesNumber(changes?.['pagesNumber'].currentValue)
     this.createdPagesList(pagesNumber);
+    this.actualPage = 1;
   }
 
-  roundPagesNumber (pagesNumber : number) {
+  roundPagesNumber (pagesNumber: number) {
     if (parseInt(String(pagesNumber)) !== parseFloat(String(pagesNumber))) {
-      return Math.round(pagesNumber);
+      return parseInt(String(pagesNumber)) + 1;
     }
 
     return pagesNumber;
