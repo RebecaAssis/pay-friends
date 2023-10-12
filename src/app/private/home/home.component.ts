@@ -3,6 +3,7 @@ import { PaymentsService } from '../services/payments.service';
 import { Observable } from 'rxjs';
 import { Payment } from '../interfaces/payment';
 import { FormBuilder, Validators } from '@angular/forms';
+import { DataItem } from '../interfaces/dataItem';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,8 @@ export class HomeComponent implements OnInit {
   pagesNumber: number;
   page = 1;
   modalOpened = false;
+  method = '';
+  idEditItem: number;
 
   form = this.fb.group({
     name: ['', Validators.required],
@@ -61,45 +64,49 @@ export class HomeComponent implements OnInit {
     this.pagesNumber = this.totalTasks/this.limitPerPage; 
   }
 
-  getLimitPerPageValue (limitPerPage: number) {
+  getLimitPerPageValue (limitPerPage: number, page = 1) {
     this.limitPerPage = limitPerPage;
-    this.page = 1;
+    this.page = page;
+
     this.getPaymentsList();
   }
 
   addNewPayment () {
-    // const payload = {
-    //   name: 'teste post',
-    //   username: 'testeposst',
-    //   title: 'POST',
-    //   value: 2,
-    //   date: 'TESTE',
-    //   image: '',
-    //   isPayed: false
-    // };
-
     const payload = this.form.getRawValue();
+
     this.payments.addNewTask(payload);
     this.toggleModal();
+    this.getPaymentsList();
   }
 
-  // editPayment () {
-  //   const payload = {
-  //     name: 'teste PUT',
-  //     username: 'testePUT',
-  //     title: 'PUT',
-  //     value: 2,
-  //     date: 'TESTE',
-  //     image: '',
-  //     isPayed: false
-  //   };
+  openModalEditItem (dataItem: DataItem) {
+    this.method = dataItem.method;
+    this.toggleModal();
+    this.idEditItem = dataItem.item.id;
+    
+    this.form.patchValue({
+      name: dataItem.item.name,
+      date: dataItem.item.date,
+      value: dataItem.item.value,
+      title: dataItem.item.title
+    });
+  }
 
-  //   this.payments.editTask(payload);
-  // }
+  editPayment () {
+    const payload = this.form.getRawValue();
+    payload.id = this.idEditItem;
 
-  // deletePayment () {
-  //   const id = 172;
-  //   this.payments.deleteTask(id)
-  // }
+    this.payments.editTask(payload);
+    this.toggleModal();
+    this.getPaymentsList();
+  }
+
+  deletePayment (payment: Payment) {
+    const id = payment.id;
+    this.payments.deleteTask(id);
+    this.getPaymentsList();
+    this.getLimitPerPageValue(this.limitPerPage, this.page);
+    //corrigir o page usado no delete
+  }
 
 }

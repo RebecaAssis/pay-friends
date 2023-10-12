@@ -3,14 +3,13 @@
     <div class="p-home__content">
         <h1>Meus Pagamentos</h1>
         <app-button class="p-home__content__button" [text]="'ADICIONAR PAGAMENTO'" (click)="addPayment()"></app-button>
-        <!-- <button type="button" (click)="addNewPayment()">add</button>
-        <button type="button" (click)="editPayment()">edit</button>
-        <button type="button" (click)="deletePayment()">delete</button> -->
         <app-payments-table 
             [payments]="paymentsList" 
             [pagesNumber]="pagesNumber" 
             (limitPerPageEvent)="getLimitPerPageValue($event)"
             (EventActualPage)="getPageValue($event)"
+            (EventEditItem)="openModalEditItem($event)"
+            (EventRemoveItem)="deletePayment($event)"
         >
         </app-payments-table>
     </div>
@@ -19,7 +18,7 @@
         [title]="'Adicionar pagamento'"
         [buttonSubmitDisabled]="form.status === 'INVALID' ? true : false"
         (declineEvent)="toggleModal()"
-        [submitFunction]="addNewPayment.bind(this)" 
+        [submitFunction]="method === 'PATCH' ? editPayment.bind(this) : addNewPayment.bind(this)" 
         class="p-home__c-modal"
     >
         <form class="p-home__c-modal__form" [formGroup]="form">

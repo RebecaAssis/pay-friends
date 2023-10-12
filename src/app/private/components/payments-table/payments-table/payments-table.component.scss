@@ -68,9 +68,23 @@
                 text-align: start;
                 padding: 20px 30px 20px 15px;
             }
-    
+        }
 
+        &__icons {
+            display: flex;
+            gap: 20px;
+            height: 100%;
+            justify-content: flex-end;
+            width: 100%;
 
+            &__icon {
+                display: flex;
+                height: 20px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
