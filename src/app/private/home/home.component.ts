@@ -55,9 +55,27 @@ export class HomeComponent implements OnInit {
     this.payments.getPaymentsList(this.page, this.limitPerPage).subscribe((res) => {
       this.paymentsList = res.tasksList;
       this.totalTasks = res.totalTasks;
-      
+           
       this.definePagesNumber();
     });
+  }
+
+  searchItem(searchValue: string) {
+    if (searchValue) {
+      this.payments.getPaymentsList(0 , this.totalTasks).subscribe((res) => {
+        let tasksList = res.tasksList;
+
+        const filtredTasksList = tasksList.filter((payment: Payment) => {
+          return payment.name.toLowerCase().includes(searchValue.toLowerCase());
+        });
+         
+        this.paymentsList = filtredTasksList;
+      })
+
+      return;
+    }
+
+    this.getPaymentsList();
   }
 
   definePagesNumber () {
