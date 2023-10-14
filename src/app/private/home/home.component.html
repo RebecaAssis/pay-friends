@@ -6,6 +6,7 @@
         <app-payments-table 
             [payments]="paymentsList" 
             [pagesNumber]="pagesNumber" 
+            (EventSearchItem)="searchItem($event)"
             (limitPerPageEvent)="getLimitPerPageValue($event)"
             (EventActualPage)="getPageValue($event)"
             (EventEditItem)="openModalEditItem($event)"
