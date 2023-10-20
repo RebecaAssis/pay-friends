@@ -22,7 +22,8 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "esModuleInterop": true
   },
   "paths": {
     "assets/*": ["src/assets/*"]
