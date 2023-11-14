@@ -1,0 +1,48 @@
+<div class="c-payments-table">
+    <form action="" [formGroup]="form" class="c-payments-table__form">
+        <input type="text" formControlName="search">
+        <div class="c-payments-table__form__pagination">
+            <app-select 
+                [inputFormGroup]="form" 
+                [inputFormControlName]="'limit'"
+            >
+            </app-select>
+            <app-steper [pagesNumber]="pagesNumber" (EventActualPage)="emitPage($event)"></app-steper>
+        </div>
+    </form>
+    <table class="c-payments-table__table">
+        <thead class="c-payments-table__table__head">
+            <tr>
+                <th>Usuário</th>
+                <th>Título</th>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Pago</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let payment of payments">
+                <td>
+                    {{ payment.name }}
+                    <br>
+                    @{{ payment.username }}
+                </td>
+                <td> {{ payment.title }} </td>
+                <td> {{ payment.date }} </td>
+                <td> {{ payment.value }}</td>
+                <td> {{ payment.isPayed }} </td>
+                <td>
+                    <div class="c-payments-table__table__icons">
+                        <span class="c-payments-table__table__icons__icon" (click)="editItem(payment)">
+                            <img src="/assets/icons/edit.png" alt="">
+                        </span>
+                        <span class="c-payments-table__table__icons__icon" (click)="removeItem(payment)">
+                            <img src="/assets/icons/remove.png" alt="">
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

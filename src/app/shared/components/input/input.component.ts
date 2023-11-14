@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -10,6 +11,8 @@ export class InputComponent implements OnInit {
   @Input() iconPath = '';
   @Input() inputType = 'text';
   @Input() inputId = '';
+  @Input() inputFormGroup!: FormGroup;
+  @Input() inputFormControlName!: string;
   @Output() iconEvent = new EventEmitter();
 
 

@@ -10,9 +10,9 @@ export class ModalComponent implements OnInit {
   @Input() primaryButton = {text: 'SALVAR', color: ''};
   @Input() secondaryButton = {text: 'CANCELAR', color: '__gray'};
   @Input() submitFunction!: Function;
+  @Input() buttonSubmitDisabled = true;
   @Output() declineEvent = new EventEmitter();
 
-  closedModal = false;
 
   constructor() { }
 
@@ -20,8 +20,7 @@ export class ModalComponent implements OnInit {
   }
 
   closeModal () {
-    this.closedModal = true;
-    this.declineEvent.emit(this.closeModal);
+    this.declineEvent.emit();
   }
 
   executeSubmitFunction () {

@@ -1,0 +1,49 @@
+@import 'variables';
+
+@mixin button-default {
+    align-items: center;
+    border: none;
+    display: flex;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.c-pagination {
+    display: flex;
+    gap: 6px;
+    
+    button {
+        @include button-default;
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+    &__chevron {
+        background: none;
+        color: $gray-forty;
+
+        img {
+            filter: brightness(0) saturate(100%) invert(76%) sepia(0%) saturate(0%) hue-rotate(214deg) brightness(94%) contrast(86%);
+            padding: 0;
+            width: 10px;
+        }
+    }
+    
+    &__container-step {
+        display: flex;
+        gap: 6px;
+    }
+
+    &__step {
+        background: none;
+        color: $gray-forty;
+        border-radius: 5px;
+    }
+    
+    &__step-active {
+        color: white;
+        background-color: $blue-secondary;
+    }
+}
