@@ -1,4 +1,3 @@
-import { map } from 'rxjs';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -36,11 +35,15 @@ export class SteperComponent implements OnInit, OnChanges {
   createdPagesList (pagesNumber: number) {
     if (pagesNumber) {
       this.pageList = [...Array(pagesNumber).keys()].map(x => x + 1); 
-    } 
+    }
     
+    // if the pagesNumber > 5 get the last value of original page list and the push in the array with the 5 firsts elements
+    // and generate an array of pages number with 6 positions
     if (pagesNumber > 5 ) {
+      let lastItemPagelist = this.pageList[this.pageList.length - 1];
+
       this.viewPagesList = this.pageList.slice(0, 5);
-      this.viewPagesList.push(this.pageList[this.pageList.length - 1]);
+      this.viewPagesList.push(lastItemPagelist);
     } else {
       this.viewPagesList = this.pageList;
     }
@@ -51,7 +54,7 @@ export class SteperComponent implements OnInit, OnChanges {
       this.actualPage -= 1;
       this.EventActualPage.emit(this.actualPage);
     }
-    
+
     (this.viewPagesList[0] !== this.pageList[0] && (this.actualPage < this.viewPagesList[this.viewPagesList.length - 2])) && this.updateViewPagesList('');
   }
 
@@ -61,15 +64,18 @@ export class SteperComponent implements OnInit, OnChanges {
       this.EventActualPage.emit(this.actualPage);
     }
 
-    (this.actualPage >= 5 && this.actualPage < this.pageList[this.pageList.length - 2]) && this.updateViewPagesList('next');
+    (this.actualPage >= 5 && this.actualPage < this.pageList[this.pageList.length - 1]) && this.updateViewPagesList('next');
   }
   
+  // the page list what is showed in the stepper
   updateViewPagesList (param: string) {
     const viewPagesListUptaded = param ? this.viewPagesList.slice(0, 5).map(x => x + 1) : this.viewPagesList.slice(0, 5).map(x => x - 1);
 
-    viewPagesListUptaded.push(this.pageList[this.pageList.length - 1]);
+    if (viewPagesListUptaded[viewPagesListUptaded.length - 1] !== this.pageList[this.pageList.length - 1]) {
+      viewPagesListUptaded.push(this.pageList[this.pageList.length - 1]);
+    }
+
     this.viewPagesList = viewPagesListUptaded;
-    console.log(this.viewPagesList);
   }
 
 }
