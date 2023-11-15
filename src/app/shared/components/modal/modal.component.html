@@ -5,8 +5,20 @@
             <ng-content></ng-content>
         </div>
         <div class="c-modal__content__footer">
-            <app-button [text]="secondaryButton.text" [buttonColor]="secondaryButton.color" (click)="closeModal()"></app-button>
-            <app-button [text]="primaryButton.text" (click)="executeSubmitFunction()" [buttonDisabled]="buttonSubmitDisabled"></app-button>
+            <app-button 
+                [text]="secondaryButton.text" 
+                [buttonColor]="secondaryButton.color" 
+                (click)="closeModal()" 
+                class="c-modal__content__footer__decline-btn"
+            >
+            </app-button>
+            <app-button 
+                [text]="primaryButton.text" 
+                (click)="executeSubmitFunction()" 
+                [buttonDisabled]="buttonSubmitDisabled"
+                class="c-modal__content__footer__submit-btn"
+            >
+            </app-button>
         </div>
     </div>
 </div>
