@@ -36,8 +36,13 @@ export class SteperComponent implements OnInit, OnChanges {
   createdPagesList (pagesNumber: number) {
     if (pagesNumber) {
       this.pageList = [...Array(pagesNumber).keys()].map(x => x + 1); 
+    } 
+    
+    if (pagesNumber > 5 ) {
       this.viewPagesList = this.pageList.slice(0, 5);
       this.viewPagesList.push(this.pageList[this.pageList.length - 1]);
+    } else {
+      this.viewPagesList = this.pageList;
     }
   }
 
