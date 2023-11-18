@@ -4,7 +4,7 @@
     </button>
     <div *ngFor="let page of viewPagesList; index as i" class="c-pagination__container-step">
         <button class="c-pagination__step" [ngClass]="{'c-pagination__step-active': actualPage === page}">{{ page }}</button>
-        <ng-template [ngIf]="pagesNumber > 5 && (pageList.length > 5 && i === 4)">
+        <ng-template [ngIf]="pagesNumber > 5 && (pageList.length > 5 && i === 4 && page < pageList.length - 1)">
             <span>...</span>
         </ng-template>
     </div>
