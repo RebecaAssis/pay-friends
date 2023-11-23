@@ -11,8 +11,8 @@ export class InputComponent implements OnInit {
   @Input() iconPath = '';
   @Input() inputType = 'text';
   @Input() inputId = '';
-  @Input() inputFormGroup!: FormGroup;
-  @Input() inputFormControlName!: string;
+  @Input() inputFormGroup: FormGroup;
+  @Input() inputFormControlName: string;
   @Output() iconEvent = new EventEmitter();
 
 

@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ModalComponent } from './modal.component';
+import { MockComponent } from 'ng-mocks'
+import { ButtonComponent } from '../button/button.component';
 
 describe('ModalComponent', () => {
   let component: ModalComponent;
@@ -7,7 +9,10 @@ describe('ModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalComponent ]
+      declarations: [ 
+        ModalComponent,
+        MockComponent(ButtonComponent)
+      ]
     })
     .compileComponents();
 
